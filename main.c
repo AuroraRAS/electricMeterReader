@@ -6,10 +6,10 @@
 #define PD_CR1      (*(volatile uint8_t *)0x5012)	//Port D control register 1
 #define PD_CR2      (*(volatile uint8_t *)0x5013)	//Port D control register 2
 
-#define PE_ODR      (*(volatile uint8_t *)0x5014)	//Port D data output latch register
-#define PE_DDR      (*(volatile uint8_t *)0x5016)	//Port D data direction register
-#define PE_CR1      (*(volatile uint8_t *)0x5017)	//Port D control register 1
-#define PE_CR2      (*(volatile uint8_t *)0x5018)	//Port D control register 2
+#define PE_ODR      (*(volatile uint8_t *)0x5014)	//Port E data output latch register
+#define PE_DDR      (*(volatile uint8_t *)0x5016)	//Port E data direction register
+#define PE_CR1      (*(volatile uint8_t *)0x5017)	//Port E control register 1
+#define PE_CR2      (*(volatile uint8_t *)0x5018)	//Port E control register 2
 
 #define UART2_SR    (*(volatile uint8_t *)0x5240) 	//UART2 status register 0xC0
 #define UART2_DR    (*(volatile uint8_t *)0x5241) 	//UART2 data register 0xXX
@@ -46,12 +46,12 @@
 #define TIM2_CCR3H  (*(volatile uint8_t *)0x5313)	//TIM2 capture/compare register 3 high
 #define TIM2_CCR3L  (*(volatile uint8_t *)0x5314)	//TIM2 capture/compare register 3 low
 
-#define CLK_ICKR    (*(volatile uint8_t *)0x50C0)    //Internal clock control register
-#define CLK_CKDIVR  (*(volatile uint8_t *)0x50C6)    //Clock divider register
-#define CCR         (*(volatile uint8_t *)0x7F0A)    //Condition code register
+#define CLK_ICKR    (*(volatile uint8_t *)0x50C0)	//Internal clock control register
+#define CLK_CKDIVR  (*(volatile uint8_t *)0x50C6)	//Clock divider register
+#define CCR         (*(volatile uint8_t *)0x7F0A)	//Condition code register
 
-#define FLASH_IAPSR (*(volatile uint8_t *)0x505F)    //Flash in-application programming status register
-#define FLASH_DUKR  (*(volatile uint8_t *)0x5064)    //Data EEPROM unprotection register
+#define FLASH_IAPSR (*(volatile uint8_t *)0x505F)	//Flash in-application programming status register
+#define FLASH_DUKR  (*(volatile uint8_t *)0x5064)	//Data EEPROM unprotection register
 
 const char hw[] = {"helloworld"};
 const char test[] =
