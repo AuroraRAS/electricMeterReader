@@ -67,11 +67,13 @@ const char test[] =
     //control code
     0b00000001,
     //data length
-    0x00,
-    //data
-    //no data
+    0x02,
+    //data DI0
+    0b00010000,
+    //data DI1
+    0b10010000,
     //checksum
-    0x8A,
+    0x00,
     //end
     0x16
 };
@@ -189,9 +191,9 @@ void main(void)
     // 52.63 = 2MHz / 38kHz
     TIM2_ARRH = 0;
     TIM2_ARRL = 52;
-    // 26.5 = 53 / 2
+    // 5.3 = 53 / 10, a better PWM then 50%
     TIM2_CCR1H = 0;
-    TIM2_CCR1L = 27;
+    TIM2_CCR1L = 6;
     //Auto-reload preload enable & Counter enable
     TIM2_CR1 |= 0b10000001;
     //*/
