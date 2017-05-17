@@ -65,15 +65,19 @@ const char test[] =
     //start
     0x68,
     //control code
-    0b00000001,
+    0x11,
     //data length
-    0x02,
-    //data DI0
-    0b00010000,
-    //data DI1
-    0b10010000,
+    0x04,
+    //data DI0 = 0x00+0x33
+    0x33,
+    //data DI1 = 0x00+0x33
+    0x33,
+    //data DI2 = 0x01+0x33
+    0x34,
+    //data DI3 = 0x00+0x33
+    0x33,
     //checksum
-    0x00,
+    0xAE,
     //end
     0x16
 };
@@ -89,10 +93,13 @@ static uint8_t uart_tx_buffer[0xff] = {0};
 void uart_rx(void) __interrupt 21
 {
     uint8_t uart_rx_buffer = UART2_DR;
-    flash_data[uart_rx_head++] = uart_rx_buffer;
 
     if(uart_rx_buffer == 0x68)
         PE_ODR &= 0b11011111;
+
+    if((PE_ODR&0b00100000)==0)
+        flash_data[uart_rx_head++] = uart_rx_buffer;
+
     if(uart_rx_buffer == 0x16)
         PE_ODR |= 0b00100000;
 }
