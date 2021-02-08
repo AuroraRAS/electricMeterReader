@@ -88,7 +88,7 @@ static uint8_t uart_rx_head = 0;
 
 static uint8_t uart_tx_head = 0;
 static uint8_t uart_tx_size = 0;
-static uint8_t uart_tx_buffer[0xff] = {0};
+static uint8_t uart_tx_buffer[0x100] = {0};
 
 void uart_rx(void) __interrupt 21
 {
